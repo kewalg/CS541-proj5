@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ListView lv;
-    ArrayAdapter arrayAdapter;
+    static ArrayAdapter arrayAdapter;
     static ArrayList<String> notes = new ArrayList<>();
 
     @Override
