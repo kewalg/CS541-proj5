@@ -15,6 +15,8 @@ import org.w3c.dom.Text;
 
 public class NoteActivity extends AppCompatActivity {
 
+    int noteid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +26,15 @@ public class NoteActivity extends AppCompatActivity {
         EditText edttext = findViewById(R.id.edt_note);
         TextView tvtitle = findViewById(R.id.tv_note);
         Intent intent = getIntent();
-        final int noteid = intent.getIntExtra("noteid", -1);
+        noteid = intent.getIntExtra("noteid", -1);
 
 
         if (noteid != -1) {
             edttext.setText(MainActivity.notes.get(noteid));
-            tvtitle.setText(MainActivity.notes.get(noteid));
+            //   tvtitle.setText(MainActivity.notes.get(noteid));
+        } else {
+            MainActivity.notes.add("");
+            noteid = MainActivity.notes.size() - 1;
         }
 
         edttext.addTextChangedListener(new TextWatcher() {
@@ -41,7 +46,7 @@ public class NoteActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 MainActivity.notes.set(noteid, String.valueOf(s));
-                //MainActivity.arrayAdapter.notifyDataSetChanged();
+                MainActivity.arrayAdapter.notifyDataSetChanged();
             }
 
             @Override

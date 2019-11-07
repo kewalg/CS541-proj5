@@ -19,12 +19,12 @@
         android:id="@+id/lv_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/btn1"
+        android:layout_above="@id/btn_newnote"
         android:layout_below="@id/title"
         android:layout_marginTop="10dp" />
 
     <Button
-        android:id="@+id/btn1"
+        android:id="@+id/btn_newnote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -33,12 +33,13 @@
         android:text="New Note" />
 
     <Button
+        android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginBottom="10dp"
-        android:layout_toRightOf="@id/btn1"
+        android:layout_toRightOf="@id/btn_newnote"
         android:text="Delete Note" />
 
 

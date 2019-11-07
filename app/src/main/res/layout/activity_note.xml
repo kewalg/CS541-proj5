@@ -18,12 +18,14 @@
     <EditText
         android:id="@+id/edt_note"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_goback"
         android:layout_below="@id/tv_note"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
+        android:gravity="top"
         android:hint="notes text" />
 
     <Button
