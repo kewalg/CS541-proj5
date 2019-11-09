@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
         btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Long Press any Note to delete!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Long Press any Note For Deletion!", Toast.LENGTH_LONG).show();
             }
         });
 

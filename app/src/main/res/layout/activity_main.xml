@@ -4,43 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/notes" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/image"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="myNotesApp"
-        android:textSize="30dp" />
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:fontFamily="@font/martel_sans" />
 
     <ListView
         android:id="@+id/lv_notes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/btn_newnote"
+        android:layout_width="500dp"
+        android:layout_height="400dp"
         android:layout_below="@id/title"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
 
     <Button
         android:id="@+id/btn_newnote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/lv_notes"
         android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:text="New Note" />
+        android:background="@drawable/style"
+        android:text="New Note"
+        android:textColor="#000000"
+        app:fontFamily="@font/martel_sans" />
 
     <Button
         android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/lv_notes"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:layout_toRightOf="@id/btn_newnote"
-        android:text="Delete Note" />
+        android:background="@drawable/style"
+        android:text="Delete Note"
+        android:textColor="#000000"
+        app:fontFamily="@font/martel_sans" />
 
 
 </RelativeLayout>

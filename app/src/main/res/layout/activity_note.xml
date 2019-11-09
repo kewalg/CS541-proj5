@@ -4,16 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".NoteActivity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/notes" />
 
     <TextView
         android:id="@+id/tv_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/image"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Edit Note"
-        android:textSize="30dp" />
+        android:layout_marginTop="10dp"
+        android:text="Tap below to edit!"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:fontFamily="@font/martel_sans" />
 
     <EditText
         android:id="@+id/edt_note"
@@ -25,8 +37,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
+        android:background="@drawable/edittext_bg"
         android:gravity="top"
-        android:hint="notes text" />
+        android:textColorHighlight="#000000" />
 
     <Button
         android:id="@+id/btn_goback"
@@ -36,6 +49,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Back" />
+        android:background="@drawable/style"
+        android:text="Confirm Edit"
+        android:textColor="#000000"
+        app:fontFamily="@font/martel_sans" />
 
 </RelativeLayout>
