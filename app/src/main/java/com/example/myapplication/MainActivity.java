@@ -2,10 +2,13 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatCheckedTextView;
 
+import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,7 +21,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ListActivity {
 
     ListView lv;
     Button btn_new, btn_del;
@@ -34,9 +37,12 @@ public class MainActivity extends AppCompatActivity {
         btn_del = findViewById(R.id.btn_delete);
 
 
-        notes.add("Example");
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, notes);
+        notes.add("");
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, notes);
         lv.setAdapter(arrayAdapter);
+
+        lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -62,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+       /* lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 final int itemdelete = position;
@@ -82,6 +88,30 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             }
+        });*/
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                final int itemdelete = i;
+                AppCompatCheckedTextView checkBox = (AppCompatCheckedTextView) view;
+                //Log.i("CHECK", checkBox.isChecked() + "" + checkBox.getText().toString());
+
+                SparseBooleanArray sp = getListView().getCheckedItemPositions();
+                String str = "";
+                for (int j = 0; j < sp.size(); j++) {
+                    str += notes[sp.keyAt(i)];                                                  /////////WORK HERE////////////
+                }
+                Toast.makeText(MainActivity.this, "" + str, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "checked items are:" + itemdelete, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btn_del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
         });
     }
+
 }
